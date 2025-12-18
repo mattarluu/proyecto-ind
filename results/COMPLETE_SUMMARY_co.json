@@ -1,7 +1,7 @@
 {
   "dataset": "co",
   "version": "v2_dual_model_complete",
-  "date_created": "2025-12-18 15:11:00",
+  "date_created": "2025-12-18 16:37:21",
   "model_type": "Dual (Classifier + Specialized Regressors)",
   "test_performance": {
     "CO_ppm": {
