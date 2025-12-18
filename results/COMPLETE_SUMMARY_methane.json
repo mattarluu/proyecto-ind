@@ -1,0 +1,79 @@
+{
+  "dataset": "methane",
+  "version": "v2_dual_model_complete",
+  "date_created": "2025-12-18 15:11:00",
+  "model_type": "Dual (Classifier + Specialized Regressors)",
+  "test_performance": {
+    "Methane_ppm": {
+      "MAE": 40.214429284710484,
+      "RMSE": 42.656597854401866,
+      "R2": 0.5377034182418352,
+      "MAE_normalized_%": 17.235000610351562
+    },
+    "Ethylene_ppm": {
+      "MAE": 0.8702871736737438,
+      "RMSE": 1.9231158359041345,
+      "R2": 0.893609193719387,
+      "MAE_normalized_%": 4.747884273529053
+    }
+  },
+  "top_features": {
+    "Methane_ppm": [
+      "ratio_2610_2620",
+      "Sensor_10_mean30_abs_velocity",
+      "Sensor_06",
+      "time_since_transition",
+      "Sensor_13_mean3_acceleration",
+      "Sensor_10_mean30_recent_std",
+      "Sensor_13",
+      "std_tgs2620",
+      "Sensor_03_mean5_acceleration",
+      "Sensor_10_std30_vs_baseline"
+    ],
+    "Ethylene_ppm": [
+      "Sensor_15_max3",
+      "Sensor_06_mean20",
+      "Sensor_15_diff_vs_baseline",
+      "Sensor_15",
+      "Sensor_15_lag1",
+      "Sensor_16_mean20_acceleration",
+      "Sensor_15_mean3",
+      "Sensor_06_max30",
+      "Sensor_06_mean30",
+      "Sensor_16_mean5_acceleration"
+    ]
+  },
+  "anomaly_detection": {
+    "n_anomalies": 314,
+    "pct_anomalies": 5.013571770716909
+  },
+  "robustness": {
+    "failure_rates_tested": [
+      0.0,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "max_degradation_%": 492.9256690617008,
+    "degradation_by_rate": {
+      "0%": 0.0,
+      "10%": 321.50696902971356,
+      "20%": 419.6328220139737,
+      "30%": 492.9256690617008
+    }
+  },
+  "configuration": {
+    "downsampling": "100Hz -> 1Hz",
+    "smoothing": "EMA window=5",
+    "model_architecture": {
+      "classifier": "XGBClassifier(n_estimators=100, max_depth=5)",
+      "transition_regressor": "XGBRegressor(n_estimators=300, max_depth=10)",
+      "stable_regressor": "XGBRegressor(n_estimators=200, max_depth=7)"
+    },
+    "sample_weights": {
+      "transitions": "5.0x",
+      "high_concentration": "3.0x",
+      "normal": "1.0x"
+    }
+  }
+}

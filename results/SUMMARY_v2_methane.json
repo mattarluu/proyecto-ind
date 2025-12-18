@@ -1,0 +1,19 @@
+{
+  "dataset": "methane",
+  "version": "v2_dual_reconstructed",
+  "date": "2025-12-18 12:34:23",
+  "test_performance": {
+    "Methane_ppm": {
+      "MAE": 40.21443557739258,
+      "RMSE": 42.65659626690959,
+      "R2": 0.5377033948898315,
+      "MAE_normalized_%": 17.235004425048828
+    },
+    "Ethylene_ppm": {
+      "MAE": 0.8702871203422546,
+      "RMSE": 1.9231159576709251,
+      "R2": 0.8936091661453247,
+      "MAE_normalized_%": 4.7478837966918945
+    }
+  }
+}

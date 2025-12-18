@@ -1,0 +1,83 @@
+{
+  "dataset": "methane",
+  "date_created": "2025-12-18 10:22:07",
+  "model_type": "XGBoost",
+  "test_performance": {
+    "Methane_ppm": {
+      "MAE": 37.26637256332444,
+      "RMSE": 43.79861642948828,
+      "R2": 0.5132165316540049,
+      "MAE_normalized_%": 15.971530691863215
+    },
+    "Ethylene_ppm": {
+      "MAE": 2.794198963588723,
+      "RMSE": 3.6241568172062597,
+      "R2": 0.6223886628420459,
+      "MAE_normalized_%": 15.243856866277817
+    }
+  },
+  "top_features": {
+    "Methane_ppm": [
+      "ratio_2610_2620",
+      "Sensor_06",
+      "std_tgs2620",
+      "Sensor_09_max60",
+      "Sensor_13_diff",
+      "Sensor_04_std30",
+      "Sensor_16_max120",
+      "Sensor_10_mean120",
+      "Sensor_06_diff",
+      "Sensor_06_max5"
+    ],
+    "Ethylene_ppm": [
+      "Sensor_15_lag1",
+      "Sensor_15",
+      "Sensor_05_mean60",
+      "Sensor_14_mean60",
+      "std_tgs2602",
+      "Sensor_11_max60",
+      "Sensor_11_max10",
+      "Sensor_14_max60",
+      "pure_gas_mode",
+      "Sensor_11_max30"
+    ]
+  },
+  "anomaly_detection": {
+    "n_anomalies": 309,
+    "pct_anomalies": 4.943209086546153
+  },
+  "robustness": {
+    "failure_rates_tested": [
+      0.0,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "max_degradation_%": 76.59421104777549
+  },
+  "configuration": {
+    "downsampling": "100Hz -> 1Hz",
+    "smoothing": "EMA window=5",
+    "features": {
+      "lags": [
+        1,
+        2,
+        3,
+        5,
+        10,
+        15,
+        20,
+        30
+      ],
+      "windows": [
+        5,
+        10,
+        30,
+        60,
+        120
+      ],
+      "cross_sensor_ratios": true,
+      "aggregated_by_type": true
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "dataset": "co",
+  "date_created": "2025-12-18 10:22:07",
+  "model_type": "XGBoost",
+  "test_performance": {
+    "CO_ppm": {
+      "MAE": 50.66747259246366,
+      "RMSE": 75.50706562098264,
+      "R2": 0.7215511956781133,
+      "MAE_normalized_%": 9.500210487402482
+    },
+    "Ethylene_ppm": {
+      "MAE": 1.644962469771611,
+      "RMSE": 2.4303060289707146,
+      "R2": 0.7494035282522513,
+      "MAE_normalized_%": 9.86780125837799
+    }
+  },
+  "top_features": {
+    "CO_ppm": [
+      "Sensor_06_min5",
+      "Sensor_06_lag1",
+      "Sensor_06",
+      "ratio_2600_2602",
+      "Sensor_07_max5",
+      "std_tgs2610",
+      "Sensor_09_min5",
+      "Sensor_05_diff",
+      "Sensor_01_min30",
+      "Sensor_06_diff"
+    ],
+    "Ethylene_ppm": [
+      "Sensor_08",
+      "std_tgs2602",
+      "Sensor_08_max10",
+      "Sensor_07_diff",
+      "pure_gas_mode",
+      "Sensor_15_diff",
+      "Sensor_15_min30",
+      "Sensor_01_diff",
+      "Sensor_04_std30",
+      "Sensor_08_diff"
+    ]
+  },
+  "anomaly_detection": {
+    "n_anomalies": 315,
+    "pct_anomalies": 5.003971405877681
+  },
+  "robustness": {
+    "failure_rates_tested": [
+      0.0,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "max_degradation_%": 196.7010613448848
+  },
+  "configuration": {
+    "downsampling": "100Hz -> 1Hz",
+    "smoothing": "EMA window=5",
+    "features": {
+      "lags": [
+        1,
+        2,
+        3,
+        5,
+        10,
+        15,
+        20,
+        30
+      ],
+      "windows": [
+        5,
+        10,
+        30,
+        60,
+        120
+      ],
+      "cross_sensor_ratios": true,
+      "aggregated_by_type": true
+    }
+  }
+}
